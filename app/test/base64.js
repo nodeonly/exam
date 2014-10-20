@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 require('chai').should();
 
-var Base64 = require('../lib/base64');
+var Base64 = require('../utils/lib/base64');
 
 
 describe('Base64', function(){
