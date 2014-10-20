@@ -31,7 +31,7 @@ var app = express();
 app.use(function(req,res,next){
     req.db = mongoose;
 		req.model = require('./db/models');
-		req.tools = require('./db/tools');
+		req.tools = require('./utils');
     next();
 });
 

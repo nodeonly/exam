@@ -5,7 +5,7 @@ var ObjectId = Schema.ObjectId;
 
 
 var tokenSchema = Schema({
-  	display_name: String,
+  display_name: String,
 	version: String,
 	os: String,
 	token: String,
