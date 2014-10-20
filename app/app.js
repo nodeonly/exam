@@ -12,7 +12,29 @@ var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
 
+
+// mongoose config
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/apns');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongoose connection error:'));
+db.once('open', function callback () {
+  // yay!
+	console.log('mongoose open success');
+});
+
+
+
 var app = express();
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = mongoose;
+		req.model = require('./db/models');
+		req.tools = require('./db/tools');
+    next();
+});
+
 
 app.use(session({
   store: new RedisStore({
@@ -23,7 +45,6 @@ app.use(session({
   saveUninitialized:false,
   secret: 'exam node only'
 }))
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,8 +58,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+var tokens = require('./routes/tokens');
+
 app.use('/', routes);
 app.use('/users', users);
+app.use('/tokens', tokens);
 
 
 
