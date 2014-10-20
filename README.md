@@ -7,9 +7,10 @@ nodeonly-utilv is a npm for dev lib for node express utils
 
 ## 进度
 
-1. [x] session
+1. [x] session(use redis)
 1. [ ] mongoose
 1. [ ] 用户注册
+1. [ ] ejs
 
 ## 测试
 
