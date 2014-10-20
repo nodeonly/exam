@@ -14,6 +14,17 @@ var RedisStore = require('connect-redis')(session);
 
 var app = express();
 
+app.use(session({
+  store: new RedisStore({
+    host: "127.0.0.1",
+    port: 6379
+  }),
+  resave:false,
+  saveUninitialized:false,
+  secret: 'exam node only'
+}))
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,16 +41,6 @@ app.use('/', routes);
 app.use('/users', users);
 
 
-app.use(session({
-  store: new RedisStore({
-    host: "127.0.0.1",
-    port: 6379,
-    db: "test_session"
-  }),
-  resave:false,
-  saveUninitialized:false,
-  secret: 'exam node only'
-}))
 
 app.use(function (req, res, next) {
   if (!req.session) {
