@@ -1,0 +1,3 @@
+[submodule "app/utils"]
+	path = app/utils
+	url = git@github.com:nodeonly/nodeonly-util.git
