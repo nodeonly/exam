@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/.bin/supervisor ./bin/www",
-		"test": "./node_modules/.bin/mocha -u tdd"
+    "test": "./node_modules/.bin/mocha -u tdd"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -26,6 +26,7 @@
     "chai": "^1.9.2",
     "mocha": "^1.21.5",
     "sinon": "^1.10.3",
+    "supertest": "^0.14.0",
     "supervisor": "^0.6.0",
     "zombie": "^2.0.8"
   }

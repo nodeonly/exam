@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.all('/', function(req, res) {
  
 	if (req.session.user) {
       res.render('index', { title: 'Express' });
@@ -32,7 +32,7 @@ router.post('/login.do',function(req,res){
 })  
 
 
-router.get('/logout.do',function(req,res){
+router.all('/logout.do',function(req,res){
 	req.session.user = undefined;	
 	res.redirect('/')
 })  
