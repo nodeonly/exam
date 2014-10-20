@@ -23,8 +23,7 @@ router.get('/create', function(req, res) {
 	fluffy.save(function (err, fluffy) {
 	  if (err) return console.error(err);
 
-		 res.json(200,{
-			 message: 'hooray! welcome to our api!',
+		 res.status(200).json({
 		 	 data:fluffy,
 			 status:{
 				 code: 0,
@@ -42,7 +41,7 @@ router.get('/', function(req, res) {
 	model.TokenModel.find().exec(function(err,docs){
 		if (err) return console.error(err);
 		
-		res.json({
+		res.status(200).json({
 		  count:docs.length,
 		  data:docs,
 		  status:{
