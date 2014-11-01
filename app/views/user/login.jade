@@ -1,0 +1,15 @@
+extends ../layout
+
+script(src='/javascripts/aa.min.js')
+block content
+	h1= title
+	form(action='/users/new',method='post')
+		div 用户名:
+			input(type='text',name='name')
+		div 密码:
+			input(type='text',name='password')
+		div 重复密码:
+			input(type='text',name='password_again')
+		div
+			input(type='submit',value='提交')
+			input(type='reset',value='重置')
