@@ -14,7 +14,7 @@ var RedisStore = require('connect-redis')(session);
 
 // mongoose config
 var mongoose = require('mongoose')  
-  , connectionString = 'mongodb://localhost:27017/apns'
+  , connectionString = 'mongodb://localhost:27017/exam_weixin'
   , options = {};
 	
 options = {  
@@ -39,7 +39,6 @@ db.once('open', function callback () {
   // yay!
 	console.log('mongoose open success');
 });
-
 
 
 var app = express();
@@ -81,8 +80,6 @@ var tokens = require('./routes/tokens');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tokens', tokens);
-
-
 
 app.use(function (req, res, next) {
   if (!req.session) {
