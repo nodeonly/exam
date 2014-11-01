@@ -13,7 +13,21 @@ var tokenSchema = Schema({
 	desc:String
 });
 
+
+var userSchema = Schema({
+  display_name: String,
+	user_name: {type:String,index: { unique: true}},
+	password: String,
+	desc:String,
+	create_at  :  { type: Date, default: Date.now }
+});
+
+userSchema.methods.findByName = function(cb){
+  return this.model('UserModel').find({user_name:this.user_name},cb);
+}
+
 var TokenModel = mongoose.model('TokenModel', tokenSchema)
+var UserModel = mongoose.model('UserModel', userSchema)
 
 
 // var checkInInfoSchema= new Schema({
@@ -57,5 +71,6 @@ var TokenModel = mongoose.model('TokenModel', tokenSchema)
 // var checkInInfo=mongoose.model('checkInOut',checkInInfoSchema);
 
 module.exports = {
- 	TokenModel:TokenModel
+ 	TokenModel: TokenModel,
+	UserModel : UserModel
 }
