@@ -12,7 +12,6 @@ var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
 
-
 // mongoose config
 var mongoose = require('mongoose')  
   , connectionString = 'mongodb://localhost:27017/apns'

@@ -5,6 +5,8 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 
+
+
 describe('GET /tokens', function(){
   it('respond with json', function(done){
     request(app)
@@ -16,6 +18,15 @@ describe('GET /tokens', function(){
 				
 				should.not.exist(err);
 				
+
+				var logger = require('../utils').logger;
+
+				console.log(logger);
+				
+				logger.log(res.body.data);
+				
+				should.exist(res.body.data)
+				res.body.status.code.should.be.equal(0)
 				
 				res.status.should.be.equal(200);
 				
