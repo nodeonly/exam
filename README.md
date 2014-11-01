@@ -10,12 +10,15 @@ nodeonly-utilv is a npm for dev lib for node express utils
 1. [x] session(use redis)
 1. [x] mongoose(see app/routes/tokens.js and app/db  for demo)
 1. [ ] 用户注册
-1. [ ] ejs
+
+
+## 约定
+
+- jade模板里所有人都必须使用tab，不准许使用space
 
 ## 测试
 
 	npm test
-
 
 ## 相关网址
 
