@@ -10,6 +10,52 @@ router.get('/register', function(req, res) {
   res.render('user/register', { title: '用户注册' });
 });
 
+router.get('/login', function(req, res) {
+  res.render('user/login', { title: '用户登陆' });
+});
+
+router.post('/login', function(req, res) {
+	var db = req.db;
+	var model = req.model
+	
+	var user_name = req.tools.req.get_value_from_body(req,'name','no user name',1);
+	var password = req.tools.req.get_value_from_body(req,'password','no password name',1);
+
+	
+	var _user = new model.UserModel({ 
+		user_name		: user_name,
+		password		: password,
+	});
+	
+	
+	_user.is_exist(function (err, user) {
+	 
+		console.log(err==null)
+		if(err==null && user){
+			console.log('ok');
+			req.session.user = user;  
+			
+			res.status(200).json({
+			  data:user,
+			  status:{
+				 code: 0,
+				 msg : 'success'
+			 }
+		  });
+		}else{
+			res.status(200).json({
+			  data:err,
+			  status:{
+				 code: 10000,
+				 msg : '登陆失败错误，请确认用户名或密码'
+			 }
+		  });
+			console.log('bu ok');
+		}
+	});
+});
+
+
 router.post('/new', function(req, res) {
   // res.render('user/register', { title: '用户注册' });
 	var db = req.db;

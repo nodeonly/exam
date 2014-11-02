@@ -26,6 +26,10 @@ userSchema.methods.findByName = function(cb){
   return this.model('UserModel').find({user_name:this.user_name},cb);
 }
 
+userSchema.methods.is_exist = function(cb){
+	return this.model('UserModel').findOne({ user_name:this.user_name,password:this.password }, cb);
+}
+
 var TokenModel = mongoose.model('TokenModel', tokenSchema)
 var UserModel = mongoose.model('UserModel', userSchema)
 
