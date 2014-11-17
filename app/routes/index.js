@@ -3,13 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.all('/', function(req, res) {
- 
-	if (req.session.user) {
-      res.render('index', { title: 'Express' });
-  } else {
-      res.redirect('/login.html');
-  }
 	
+	if (req.session.user) {
+    res.render('index', { title: 'Express' });
+  } else {
+    // res.redirect('/users/login');
+  }
 });
 
 router.post('/login.do',function(req,res){
@@ -37,5 +36,8 @@ router.all('/logout.do',function(req,res){
 	res.redirect('/')
 })  
 
+router.get('/main', function(req, res) {
+  res.render('main', { title: '用户dashboard' });
+});
 
 module.exports = router;

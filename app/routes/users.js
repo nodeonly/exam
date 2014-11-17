@@ -35,6 +35,15 @@ router.post('/login', function(req, res) {
 			console.log('ok');
 			req.session.user = user;  
 			
+			if (req.session.user) {
+				res.redirect('/');
+				// res.redirect('/main');
+		      // res.render('main', { title: 'Express' });
+		  } else {
+		      res.redirect('/login.html');
+		  }
+			
+			return;
 			res.status(200).json({
 			  data:user,
 			  status:{

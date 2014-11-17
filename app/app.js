@@ -12,6 +12,10 @@ var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
 
+Array.prototype.contain = function(obj) {
+  return this.indexOf(obj) !== -1;
+}
+
 // mongoose config
 var mongoose = require('mongoose')  
   , connectionString = 'mongodb://localhost:27017/exam_weixin'
@@ -74,6 +78,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+	console.log(req.url)
+	var exception = ['/users/login','/users/register']
+	if (exception.contain(req.url) == true) {
+		next();
+		return;
+	}
+	
+	if (req.session.user) {
+    next();
+  } else {
+    res.redirect('/users/login');
+  }
+});
 
 var tokens = require('./routes/tokens');
 
