@@ -1,6 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title},看到我的时候，说明你已经登录 
-  a(href='/logout.do') 登出
+	h1= title
+	p Welcome to #{title},看到我的时候，说明你已经登录 
+	div
+		a(href='/logout.do') 登出
+		span |
+		a(href='/logout.do') 创建试卷
