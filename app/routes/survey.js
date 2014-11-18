@@ -4,20 +4,13 @@ var Handlebars = require('handlebars');
 var uuid = require('node-uuid');
 var BufferHelper = require('bufferhelper');
 
-
-var app = express();
-
 /* GET users listing. */
 router.get('/', function(req, res) {
 	res.render('survey/index', { title: '创建试卷' });
 });
 
 /* GET home page. */
-router.get('/generate', function(req, res) {
-	
-	var app_public_dir =app.get('app_public_dir');
-	console.log(req.query);
-	
+router.get('/generate', function(req, res) { 
  
     var o = req.query.data
     var i = JSON.parse(o);

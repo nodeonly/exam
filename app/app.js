@@ -50,10 +50,7 @@ app.use(session({
   saveUninitialized:false,
   secret: 'exam node only'
 }))
-
-
-app.set('app_dir', __dirname);
-app.set('app_public_dir', path.join(__dirname, 'public'));
+ 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
