@@ -2,7 +2,6 @@ var exam = {}
  
 $(function(){
 	
-	
 	$('#create_exam_on_server_btn').off('click').on('click',create_exam_on_server);
 	
 	$('#create_exam_btn').click(function(){
@@ -18,9 +17,6 @@ $(function(){
 		var weixinname = $("input[name='all_weixin_name']").val();
 		var weixinid = $("input[name='all_weixin_id']").val();
 		
-		
-		
-		
 		exam = {
 			"is_ad"		: 	$("select[name='is_ad']").val(),
 			"name"		: 	qname,
@@ -35,7 +31,7 @@ $(function(){
 	$('#create_question_btn').click(function(){
 		var h = "<br>"
 			+ "<div style='border:1px dashed lightblue' class='question_info'>"
-			+ "<input type='text' name='all_weixin_name' value='智楠金柜' />"
+			+ "<input type='text' name='all_weixin_name' value='前端试题' />"
 			+"<button class='create_answer_btn'>创建答案</button>"
 			+"<button class='save_question_btn'>保存题目</button>"
 			+ "<div class='answer'>"
