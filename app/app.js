@@ -19,6 +19,9 @@ var html_dir = path.join(__dirname, 'public/html');
  */ 
 if (!test('-d', html_dir)) { 
 	mkdir('-p', html_dir);
+
+	cp('-R', 'vendor', html_dir + '/');
+	
 };
 
 Array.prototype.contain = function(obj) {
