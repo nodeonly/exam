@@ -1,0 +1,25 @@
+body {
+  padding: 5px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.show_exam{
+	display:none;
+}
+
+
+.left{
+	display:block;
+	width:20%;
+	height:100%;
+	float:left;
+	background:lightblue;
+}
+
+.main{
+	display:block;
+	width:80%;
+	height:100%;
+	float:left;
+/*	background:blue;*/
+}

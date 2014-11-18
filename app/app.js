@@ -96,10 +96,12 @@ app.use(function(req,res,next){
 });
 
 var tokens = require('./routes/tokens');
+var survey = require('./routes/survey');
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tokens', tokens);
+app.use('/surveys', survey);
 
 app.use(function (req, res, next) {
   if (!req.session) {
