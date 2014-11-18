@@ -28,4 +28,4 @@ node_modules
 .lock-wscript
 
 app/public/html/*.html
- app/public/dataStream.json
+app/public/dataStream.json
