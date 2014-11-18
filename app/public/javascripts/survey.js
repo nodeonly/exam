@@ -172,12 +172,31 @@ $(function(){
 		exam.all = json;
 		
 		$.post('http://127.0.0.1:4100/surveys', exam, function(data){
-			console.log('get data = '+data);
+			
 			if(data.status.code == 0 ){
 				alert('问卷保存成功');
+			}else{
+				console.log('问卷保存失败' + data.status.msg );
+				alert('问卷保存失败' + data.status.msg );
 			}
 		});
 		
+		var qname = $("input[name='all_name']").val();
+		var count = 0;
+		
+		var desc = $("input[name='all_desc']").val();
+		
+		var weixinname = $("input[name='all_weixin_name']").val();
+		var weixinid = $("input[name='all_weixin_id']").val();
+		
+		exam = {
+			"is_ad"		: 	$("select[name='is_ad']").val(),
+			"name"		: 	qname,
+			"count"		: 	count,
+			"desc"		: 	desc,
+			"weixinName": 	weixinname,
+			"weixinId"	: 	weixinid
+		}
 		// setTimeout(function(){
 		// 	window.href.location = 'http://127.0.0.1:3000/dataStream.html'
 		// },2000);

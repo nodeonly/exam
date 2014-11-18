@@ -78,7 +78,16 @@ router.post('/', function(req, res) {
 	});
 	
 	survey.save(function (err, sur) {
-	  if (err) return console.error(err);
+	  if (err) {
+	  	 console.error(err);
+			 return res.status(200).json({
+			 	 data:{},
+				 status:{
+				 	 code : err.code,
+					 msg  : err.name + ' : ' + err.err
+				 }
+			 }); 
+	  }
 
 		 res.status(200).json({
 		 	 data:sur,
