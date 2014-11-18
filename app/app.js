@@ -11,45 +11,27 @@ var users = require('./routes/users');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
+require('shelljs/global');
+var html_dir = path.join(__dirname, 'public/html');
+
+/**
+ * create public/html dir for generate
+ */ 
+if (!test('-d', html_dir)) { 
+	mkdir('-p', html_dir);
+};
 
 Array.prototype.contain = function(obj) {
   return this.indexOf(obj) !== -1;
 }
-
-// mongoose config
-var mongoose = require('mongoose')  
-  , connectionString = 'mongodb://localhost:27017/exam_weixin'
-  , options = {};
-	
-options = {  
-  server: {
-    auto_reconnect: true,
-    poolSize: 10
-  }
-};
-	
-mongoose.connect(connectionString, options, function(err, res) {  
-  if(err) {
-    console.log('[mongoose log] Error connecting to: ' + connectionString + '. ' + err);
-  } else {
-    console.log('[mongoose log] Successfully connected to: ' + connectionString);
-  }
-});
-
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'mongoose connection error:'));
-db.once('open', function callback () {
-  // yay!
-	console.log('mongoose open success');
-});
 
 
 var app = express();
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
-    req.db = mongoose;
+    // req.db = mongoose;
+		req.models = require('./models');
 		req.model = require('./db/models');
 		req.tools = require('./utils');
     next();
@@ -66,6 +48,9 @@ app.use(session({
   secret: 'exam node only'
 }))
 
+
+app.set('app_dir', __dirname);
+app.set('app_public_dir', path.join(__dirname, 'public'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

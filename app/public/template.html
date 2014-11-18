@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+    <title>{{name}}</title>
+	<META name=keywords content="微小信,微信公众平台,微信接口,微信机器人,微信助手,微信营销,微信第三方接口,微信公众号">
+	<META name=description content="微小信提供最好用微信公众平台、最方便的微信接口，微信会员卡、微信喜帖、优惠券、大转盘、团购、一战到底、微网站、微相册、在线预订，一应俱全。让你运营微信公众号得心应手!">
+	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/style.css?m=0711" />
+	<link rel="stylesheet" href="vendor/template.css" />
+	<script>
+		var total = {{questions.length}};
+	</script>
+</head>
+<body>
+	<div class="bg"></div>
+
+	<div id="ad0">
+		<script type="text/javascript">
+		    /*-底部ad20:3 创建于 2014-09-01*/
+		    var cpro_id = "u1692962";
+		</script>
+		<script src="http://cpro.1baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+	</div>
+
+	<div class="container">
+		    <div class="text-center header">
+	        <h1 class="bold">
+				<span id='all_name_pan'>{{name}}</span>
+			</h1>
+	        <p>已有<span id='all_count_pan'>0</span>人参考</p>
+	        <div class="avatar1 text-center">
+	            <div class="img-circle" id="sicon">
+	                <span class="glyphicon glyphicon-pencil"></span>
+	            </div>
+	        </div>
+	    </div>
+	    <div id="bd" class="panel">
+	        <div id="panel1" class="panel-body">
+	            <dl>
+	                <dd style="font-size:18px;">
+						<span id='all_desc_pan'>
+							{{desc}}
+						</span>		
+					</dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="#result" class="btn btn-danger btn-danger1 btn-block" onclick="return next(0);"> 开始测试</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 
+						一键关注
+					</a>
+	            </div>       
+			 </div>
+			 <div id='timu_shengcheng_container'> 
+				  {{#each questions}}
+				  <div id='panel2' class='panel-body js_answer' data-type='1'		 style='display: none;'>
+				  	<dl>
+				  		<dd><p>{{label}}</p></dd>				
+				  	</dl>
+				  	<ul class='list-group js_group'>
+							 {{#each answers}}
+								 <li class='list-group-item' data-score='10' onclick='return toggle(this);'>
+								 <i class='glyphicon glyphicon-unchecked'></i>{{label}}
+								 </li>
+								 
+							  {{/each}}
+							 																				
+				  	</ul>
+				  	<div class='buttons buttons2'>
+				  		<a href='http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd' class='btn btn-danger btn-danger2 btn-block'> 
+				  		一键关注
+				  		</a>
+				  	</div>    
+				  </div>
+				  {{/each}}
+
+				 
+								
+		 	 </div>
+			
+				<div id="panel3" class="panel-body js_result" data-id="0" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：0分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>看来你真是外地人，好吧！河南人民欢迎你！凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+			
+			
+				<div id="panel3" class="panel-body js_result" data-id="1" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：10分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>看来你真是外地人，好吧！河南人民欢迎你！凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+			
+				<div id="panel3" class="panel-body js_result" data-id="2" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：20分</h1>
+			
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>我靠！分这么低！我没有搞错吧！你可别冒充我们河南人啊！凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+			
+				<div id="panel3" class="panel-body js_result" data-id="3" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：30分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>对你已经无语了！这么低的分数，也敢来测试！别说我认识你！快快分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+				<div id="panel3" class="panel-body js_result" data-id="4" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：40分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>你好意思测试啊！别说我认识你！知道你五音不全，为了惩罚你！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+				<div id="panel3" class="panel-body js_result" data-id="5" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：50分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>你好意思测试啊！别说我认识你！知道你五音不全，为了惩罚你！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+			
+				<div id="panel3" class="panel-body js_result" data-id="6" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：60分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>还不错的分数啊！不过要继续加油哦！奖励一下！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+				<div id="panel3" class="panel-body js_result" data-id="7" style="display:none;">
+	            <h1 class="bold text-danger">考试成绩：70分</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>还不错的分数啊！不过要继续加油哦！奖励一下！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+			
+				<div id="panel3" class="panel-body js_result" data-id="8" style="display:none;">
+	            <h1 class="bold text-danger">赞一个！80分！</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>厉害了哦！相当接近河南方言了，要是在厉害一点就可以当地头蛇啦！看你这么优秀我不得表示一下！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>       
+			 </div><div id="panel3" class="panel-body js_result" data-id="9" style="display:none;">
+	            <h1 class="bold text-danger">哇塞！90分！</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    <p>厉害了哦！相当接近河南方言了，要是在厉害一点就可以当地头蛇啦！看你这么优秀我不得表示一下！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>
+				<div id="panel3" class="panel-body js_result" data-id="10" style="display:none;">
+	            <h1 class="bold text-danger">恭喜你！获得100分！</h1>
+	            <hr>
+	            <dl>
+	                <dt>详细分析:</dt>
+	                <dd>
+	                    					<p>什么都不用说啦！小金坚信你就是地地道道的河南人，向你致以最崇高的敬意！为了表示祝贺！分享朋友圈后，凭分享记录可至东方金柜KTV领取200元房费卡一张！</p>
+	                </dd>
+	            </dl>
+	            <div class="buttons">
+	                <a href="javascript:void(0)" class="btn btn-success btn-block" onclick="$('#mcover').show()">分享给朋友(圈)</a>
+	            </div>
+				<div class="buttons buttons2">
+	                <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODk1NzQxNA==&mid=200904455&idx=1&sn=39486707ffef126a1ca767a319713dad#rd" class="btn btn-danger btn-danger2 btn-block"> 一键关注</a>
+	            </div>        </div>        
+	    </div>
+	</div>
+	
+	<div class="footer text-center" style=" position:relative;margin-bottom:20px">
+		<div class="container">
+			由 <span id='all_weixin_name_pan'>{{weixinName}}</span>提供技术支持。
+			微信号：<span id='all_weixin_id_pan'>{{weixinId}}</span>
+		</div>
+			
+		<div class="footer text-center" id="content" >
+			<div style='width:300px;height:100px;'></div>
+		
+			<style>
+			.footer.text-center {
+			 position: relative;
+			}
+			</style>
+			<script type="text/javascript">
+			/*head -ad20:2 创建于 2014-09-01*/
+			var cpro_id = "u1692970";
+			</script>
+			<script src="http://cpro.1baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+		</div>
+	</div>
+
+	<div id="mcover" onclick="$(this).hide()">
+	    <img src="guide.png">
+	</div>
+	<div class="loads" style="display:bolck"><i></i></div>
+
+
+	<div class="hide"></div>
+	<DIV STYLE="DISPLAY:NONE;">
+		<img src="http://hm.baidu.com/hm.gif?si=50e8608aef835699234de1e805173bbd&amp;et=0&amp;nv=1&amp;st=1&amp;v=wap-0-0.2&amp;rnd=8600456621" width="0" height="0" />
+	</DIV>
+</body>
+</html>
+<script type="text/javascript"  src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script src="vendor/zepto.min.js"></script>
+<script src="vendor/WeixinApi.min.js"></script>
+<script src="vendor/template.js"></script>

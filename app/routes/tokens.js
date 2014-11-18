@@ -3,7 +3,6 @@ var router = express.Router();
 
 /* GET token create. */
 router.get('/create', function(req, res) {
-	var db = req.db;
 	var model = req.model
 	
 	
@@ -34,7 +33,6 @@ router.get('/create', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-	var db = req.db;
 	var model = req.model
 	
 	// Tank.find({ size: 'small' }).where('createdDate').gt(oneYearAgo).exec(callback);

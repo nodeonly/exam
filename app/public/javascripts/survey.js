@@ -2,7 +2,8 @@ var exam = {}
  
 $(function(){
 	
-	$('#create_exam_on_server_btn').off('click').on('click',create_exam_on_server);
+	$('#save_exam_on_server_btn').off('click').on('click',save_exam_on_server_btn);
+	$('#create_exam_on_server_btn').off('click').on('click',create_exam_on_server_btn);
 	
 	$('#create_exam_btn').click(function(){
 		$('.create_exam').hide();
@@ -126,7 +127,7 @@ $(function(){
 		
 	}
 	
-	function create_exam_on_server(){
+	function create_exam_on_server_btn(){
 		var question_infos  = $('.question_info');
 		
 		var q_array = [];
@@ -142,14 +143,44 @@ $(function(){
 		
 		var json = JSON.stringify(exam);  
 		console.log(json);
+		exam.all = json;
 		
-		$.get('http://127.0.0.1:3000/?data='+json+'',function(data){
+		$.get('http://127.0.0.1:4100/surveys/generate?data=' + json, function(data){
 			console.log('get data = '+data);
+			if(data.status.code == 0 ){
+				alert('问卷保存成功');
+			}
+		});
+	}
+	
+	function save_exam_on_server_btn(){
+		var question_infos  = $('.question_info');
+		
+		var q_array = [];
+		$.each(question_infos, function(i){
+			console.log($(this).val());
+			
+			var data = $(this).data('data');
+			
+			q_array.push(data);
 		});
 		
-		setTimeout(function(){
-			window.href.location = 'http://127.0.0.1:3000/dataStream.html'
-		},2000);
+		exam.questions = q_array;
+		
+		var json = JSON.stringify(exam);  
+		console.log(json);
+		exam.all = json;
+		
+		$.post('http://127.0.0.1:4100/surveys', exam, function(data){
+			console.log('get data = '+data);
+			if(data.status.code == 0 ){
+				alert('问卷保存成功');
+			}
+		});
+		
+		// setTimeout(function(){
+		// 	window.href.location = 'http://127.0.0.1:3000/dataStream.html'
+		// },2000);
 	}
 	
 });

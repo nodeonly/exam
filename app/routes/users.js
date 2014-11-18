@@ -15,7 +15,6 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
-	var db = req.db;
 	var model = req.model
 	
 	var user_name = req.tools.req.get_value_from_body(req,'name','no user name',1);
@@ -26,7 +25,6 @@ router.post('/login', function(req, res) {
 		user_name		: user_name,
 		password		: password,
 	});
-	
 	
 	_user.is_exist(function (err, user) {
 	 
