@@ -28,7 +28,6 @@ Array.prototype.contain = function(obj) {
   return this.indexOf(obj) !== -1;
 }
 
-
 var app = express();
 
 // Make our db accessible to our router

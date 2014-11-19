@@ -64,6 +64,7 @@ router.post('/login', function(req, res) {
 
 
 router.post('/new', function(req, res) {
+	console.log('--------------------');
   // res.render('user/register', { title: '用户注册' });
 	var db = req.db;
 	var model = req.model
@@ -84,7 +85,7 @@ router.post('/new', function(req, res) {
 		desc				: desc
 	});
 	
-	// console.log(_user);
+	console.log('user = '+_user);
 	
 	_user.findByName(function (err, users) {
 		console.log('users='+users) 
@@ -102,10 +103,11 @@ router.post('/new', function(req, res) {
 		 				 code: 10000,
 		 				 msg : '保存错误'
 		 			 }
-		 		 });
-			  	return 
+		 		 }); 
 			  }
-
+				
+				 res.redirect('/');
+				 return;
 				 res.status(200).json({
 				 	 data:user,
 					 status:{
@@ -128,18 +130,7 @@ router.post('/new', function(req, res) {
 		  	return 
 		  }
 		}
-		
-	
 	});
-	
-	
-	
-	
-	// res.json({
-// 		data:req.body
-// 	})
-	
-	// res.redirect('/index');
 });
 
 

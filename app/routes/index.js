@@ -5,7 +5,7 @@ var router = express.Router();
 router.all('/', function(req, res) {
 	
 	if (req.session.user) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: '前端专业八级测试' });
   } else {
     // res.redirect('/users/login');
   }
