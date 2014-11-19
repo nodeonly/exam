@@ -204,8 +204,8 @@ WeixinApi.ready(function(Api) {
         "appId": "wx6987e3e535ea35fe",
         "imgUrl" : 'http://weixiaoxinpic.qiniudn.com/Public/upload/42755/54082eb7c71e3.jpg',
         "link" : 'http://wap.weixiaoxin.com/Fy/index/?wid=42755&id=87&r=99517',
-        "desc" : '刚在河南方言考试中，得了[n]分，你也来测试一下吧！',
-        "title" : '在河南方言考试中我获得了[n]分，足厉害啊！'
+        "desc" : '刚在前端八级考试中，得了[n]分，你也来测试一下吧！',
+        "title" : '在前端八级考试中我获得了[n]分，足厉害啊！'
     };
     // 分享的回调
     var wxCallbacks = {
