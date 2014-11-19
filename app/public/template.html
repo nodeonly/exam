@@ -40,36 +40,30 @@
 	                <a href="#result" class="btn btn-danger btn-danger1 btn-block" onclick="return next(0);"> 开始测试</a>
 	            </div>
 				<div class="buttons buttons2">
-	                <a href="http://www.baidu.com" class="btn btn-danger btn-danger2 btn-block"> 
+	         <a href="http://www.baidu.com" class="btn btn-danger btn-danger2 btn-block"> 
 						一键关注
-					</a>
-	            </div>       
+					 </a>
+	       </div>       
 			 </div>
+			 
 			 <div id='timu_shengcheng_container'> 
 				  {{#each questions}}
 				  <div id='panel2' class='panel-body js_answer' data-type='1'		 style='display: none;'>
 				  	<dl>
 				  		<dd><p>{{label}}</p></dd>				
 				  	</dl>
-				  	<ul class='list-group js_group'>
-							 {{#each answers}}
-								 <li class='list-group-item' data-score='10' onclick='return toggle(this);'>
-								 <i class='glyphicon glyphicon-unchecked'></i>{{label}}
-								 </li>
-								 
-							  {{/each}}
-							 																				
-				  	</ul>
+				  
+					 {{#answer_item answers}}
+						 {{label}}
+					 {{/answer_item}}
+				
 				  	<div class='buttons buttons2'>
 				  		<a href='http://www.baidu.com' class='btn btn-danger btn-danger2 btn-block'> 
 				  		一键关注
 				  		</a>
 				  	</div>    
 				  </div>
-				  {{/each}}
-
-				 
-								
+				  {{/each}}								
 		 	 </div>
 			
 				<div id="panel3" class="panel-body js_result" data-id="0" style="display:none;">

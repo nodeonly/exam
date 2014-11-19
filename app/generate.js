@@ -4,6 +4,31 @@ var Handlebars = require('handlebars');
 var uuid = require('node-uuid');
 var BufferHelper = require('bufferhelper');
 
+Handlebars.registerHelper('answer_item', function(items, options) {
+  var out = "<ul  class='list-group js_group'>";
+	
+	function iToChar(z){
+		var i = z;
+		if(z >= 0 && z < 26){
+			i = i + 65;
+		}else{
+			return "undefined z in iToChar(z)"
+		}
+		
+		return String.fromCharCode(i);
+	}
+	
+  for(var i=0, l=items.length; i<l; i++) {
+    out = out + "<li  class='list-group-item' data-score='10' onclick='return toggle(this);'>"
+							+ "<i class='glyphicon glyphicon-unchecked'></i>" 
+							+iToChar(i)+" "+ 
+							+ options.fn(items[i]) 
+							+ "</li>";
+  }
+
+  return out + "</ul>";
+});
+
 
 var o = "{\"is_ad\":\"false\",\"name\":\"前端技术专业八级考试15\",\"count\":0,\"desc\":\"友情提示：不准携带通讯工具，不准交头接耳、 一经发现，取消考试成绩，并终生禁止再次参与本考试！一定要记得哦！\",\"weixinName\":\"all_weixin_name\",\"weixinId\":\"188888888\",\"questions\":[{\"label\":\"单选\",\"answers\":[{\"label\":\"我不是答案\",\"is_answer\":false},{\"label\":\"我是答案\",\"is_answer\":true},{\"label\":\"我是小三\",\"is_answer\":false}]},{\"label\":\"多选\",\"answers\":[{\"label\":\"我是答案1\",\"is_answer\":true},{\"label\":\"我是答案2\",\"is_answer\":true},{\"label\":\"我不是答案\",\"is_answer\":false}]}]} ";
 
