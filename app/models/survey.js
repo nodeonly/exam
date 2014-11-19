@@ -18,7 +18,8 @@ var reasons = Surveychema.statics.failedLogin = {
 };
 
 Surveychema.statics.find_list = function(conditions, cb) {
-	this.find (conditions, function(err,surveys){
+	var options = { limit: 10 ,sort: '-create_at' };//limit: 5, sort: 'create_at'};
+	this.find (conditions,null, options, function(err,surveys){
     if (err) return cb(err);
 
     // make sure the user exists
