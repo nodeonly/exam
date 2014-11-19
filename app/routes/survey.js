@@ -9,21 +9,26 @@ router.get('/', function(req, res) {
 	res.render('survey/index', { title: '创建试卷' });
 });
 
+router.get('/list', function(req, res) {
+	var Survey = req.models.Survey;
+	Survey.find_list({},function(surveys){
+		res.render('survey/list', { title: '试卷列表',surveys: surveys });
+	});
+});
+
 /* GET home page. */
 router.get('/generate', function(req, res) { 
- 
-    var o = req.query.data
-    var i = JSON.parse(o);
+	var o = req.query.data
+  var i = JSON.parse(o);
+		
+	var survey_name = i.name
 	console.log( i );
 	
-	 var fs = require('fs');
- 	 
-	 var ws = fs.createWriteStream('public/dataStream.json', { encoding: "utf8" })
+	var fs = require('fs'); 
+	var ws = fs.createWriteStream('public/dataStream.json', { encoding: "utf8" })
 
-	 ws.write(o); 
-	 ws.end(); // 目前和destroy()和destroySoon()一样 
-	 
-	  
+	ws.write(o); 
+	ws.end(); // 目前和destroy()和destroySoon()一样  
 	 // Generate a v1 (time-based) id
 	var pid = uuid.v1(); // -> '6c84fb90-12c4-11e1-840d-7b25c5ee775a'
 	
@@ -44,13 +49,16 @@ router.get('/generate', function(req, res) {
 		var dddd = template(i);
 				
 		console.log('complied source = ' + pid);
-	   var ws1 = fs.createWriteStream('public/html/'+pid+'.html', { encoding: "utf8" })
-
-	   	ws1.write(dddd); 
-	   	ws1.end(); 
+		var html_path = '/html/'+pid+'.html';
+		var generated_html_path = 'public' + html_path;
+	  var ws1 = fs.createWriteStream(generated_html_path, { encoding: "utf8" })
+		ws1.write(dddd); 
+	  ws1.end(); 
 		
 		var open = require("open");
 		open("http://127.0.0.1:4100/html/"+pid+".html");
+		
+		req.models.Survey.update_static_page_name_by_name(html_path, survey_name);
 	});
 	//
 	res.render('index', { title: 'Express' ,uuid:pid});
