@@ -4,7 +4,16 @@ var Handlebars = require('handlebars');
 var uuid = require('node-uuid');
 var BufferHelper = require('bufferhelper');
 
+
+var o = "{\"is_ad\":\"false\",\"name\":\"前端技术专业八级考试15\",\"count\":0,\"desc\":\"友情提示：不准携带通讯工具，不准交头接耳、 一经发现，取消考试成绩，并终生禁止再次参与本考试！一定要记得哦！\",\"weixinName\":\"all_weixin_name\",\"weixinId\":\"188888888\",\"questions\":[{\"label\":\"单选\",\"answers\":[{\"label\":\"我不是答案\",\"is_answer\":false},{\"label\":\"我是答案\",\"is_answer\":true},{\"label\":\"我是小三\",\"is_answer\":false}]},{\"label\":\"多选\",\"answers\":[{\"label\":\"我是答案1\",\"is_answer\":true},{\"label\":\"我是答案2\",\"is_answer\":true},{\"label\":\"我不是答案\",\"is_answer\":false}]}]} ";
+o.next = true;
+
+
 Handlebars.registerHelper('answer_item', function(items, options) {
+	if (o.next == true) {
+		console.log('-----');
+	}
+	
   var out = "<ul  class='list-group js_group'>";
 	
 	function iToChar(z) {
@@ -19,6 +28,7 @@ Handlebars.registerHelper('answer_item', function(items, options) {
 	}
 	
   for(var i=0, l=items.length; i<l; i++) {
+		var cAnswer = items[i];
 		var data_score = 0;
 		if(cAnswer.is_answer) {
 			data_score = 10;
@@ -35,9 +45,6 @@ Handlebars.registerHelper('answer_item', function(items, options) {
   return out + "</ul>";
 });
 
-
-var o = "{\"is_ad\":\"false\",\"name\":\"前端技术专业八级考试15\",\"count\":0,\"desc\":\"友情提示：不准携带通讯工具，不准交头接耳、 一经发现，取消考试成绩，并终生禁止再次参与本考试！一定要记得哦！\",\"weixinName\":\"all_weixin_name\",\"weixinId\":\"188888888\",\"questions\":[{\"label\":\"单选\",\"answers\":[{\"label\":\"我不是答案\",\"is_answer\":false},{\"label\":\"我是答案\",\"is_answer\":true},{\"label\":\"我是小三\",\"is_answer\":false}]},{\"label\":\"多选\",\"answers\":[{\"label\":\"我是答案1\",\"is_answer\":true},{\"label\":\"我是答案2\",\"is_answer\":true},{\"label\":\"我不是答案\",\"is_answer\":false}]}]} ";
-o.next = true;
 
 var i = JSON.parse(o);
 	

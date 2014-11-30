@@ -30,6 +30,7 @@ nodeonly-utilv is a npm for dev lib for node express utils
 - http://visionmedia.github.io/mocha/
 - https://github.com/tj/supertest
 
+- http://handlebarsjs.com/
 
 ## Contributing
 
